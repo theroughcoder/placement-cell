@@ -1,0 +1,111 @@
+ <link rel="stylesheet" href="/css/students.css">
+ <!-- this is a box  -->
+ <div id="box"> 
+    <!-- from for submitting student  -->
+    <form action="/student/addstudent" method="POST">
+        <!-- app name -->
+        <h1 id="head">Students</h1>
+        <!-- this is checklist input container  -->
+        <div class="input_field">
+            <div>
+
+                <p>Name</p>
+                <input class="input" required type="text" name = "name" placeholder="Mention your name">
+            </div>
+            <div>
+
+                <p>Email</p>
+                <input class="input" required type="email" name = "email" placeholder="Mention your email">
+            </div>
+        </div>
+        <div class="input_field">
+            <div>
+
+                <p>Batch</p>
+                <input class="input" required type="text" name = "batch" placeholder="Mention your batch">
+            </div>
+            <div>
+
+                <p>College</p>
+                <input class="input" required type="text" name = "college" placeholder="Mention your college">
+            </div>
+        </div>
+        <!-- this is second input container that has two input -->
+        <div  class="input_field">
+            <div>
+                <!-- category field  -->
+                <p>Status</p>
+                <select id="category" name="status" required>
+                    <option value="" disabled selected>Choose a status</option>
+                    <option value="Placed">Placed</option>
+                    <option value="Not placed">Not Placed</option>
+                    
+                </select>
+            </div>
+            <div>
+                <!-- due date field  -->
+                <p>DSA score</p>
+                <input class="input" required type="text" name = "DSA" placeholder="Mention your dsa Score">
+            </div>
+        </div>
+        
+        <div class="input_field">
+            <div>
+
+                <p>Web Score</p>
+                <input class="input" required type="text" name = "webD" placeholder="Mention your web score">
+            </div>
+            <div>
+
+                <p>React Score</p>
+                <input class="input" required type="text" name = "react" placeholder="Mention your reach score">
+            </div>
+        </div>
+        <div id="btns">
+            <!-- add button  -->
+            <button type="submit" id="add_btn">ADD student</button>
+            <!-- delete button  -->
+            <!-- <button type="button" id="delete_btn" onclick="submitHandler()">DELETE student</button> -->
+        </div>
+    </form>
+ 
+   
+    <!-- from for deleting the students   -->
+
+    <form action="/student/deletestudent" method="POST" id="student_list">
+        <h2>Students Table</h2>
+
+        <table>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>College</th>
+              <th>Batch</th>
+              <th>DSA Score</th>
+              <th>Web Score</th>
+              <th>React Score</th>
+              <th>Status</th>
+            </tr>
+        <% for(let i = 0; i < student.length ; i++ ) { %>
+        <div class="student_items"> 
+            <!-- <input type="checkbox" name="students" value='<%= student[i]._id %>' class="student_check"  > -->
+                <tr>
+                  <td class="student"><%= student[i].name %></td>
+                  <td class="student"><%= student[i].email %></td>
+                  <td class="student"><%= student[i].college %></td>
+                  <td class="student"><%= student[i].batch %></td>
+                  <td class="student"><%= student[i].DSA %></td>
+                  <td class="student"> <%= student[i].webD %></td>
+                  <td class="student"> <%= student[i].react %></td>
+                  <td class="student">  <div class='<%= student[i].status %> student_category ' > <%= student[i].status %></div></td>
+                </tr>
+             
+                
+                
+                
+            </div>
+            <%}%>
+        </table>
+    </form>
+    <script src="/js/students.js"></script>
+</div>

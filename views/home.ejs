@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo app</title>
+    <!-- css link  -->
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<body>
+    <div class="container">
+       <a href="/createCSV">
+            <!-- this is the button for downloading students inteview csv file -->
+           <button id="btn" type="button">Download Report CSV</button>
+       </a>
+       <h2>Interviews Table</h2>
+
+       <table>
+           <tr>
+             <th>Company</th>
+             <th>Date</th>
+             <th>Name</th>
+             <th>Email</th>
+             <th>College</th>
+             <th>Batch</th>
+             <th>DSA Score</th>
+             <th>Web Score</th>
+             <th>React Score</th>
+             <th>Result</th>
+           </tr>
+          <% for(let i = 0; i < interview.length; i++ ) { %>
+           <tr>
+               <td class="interview"><%= interview[i].company %></td>
+               <td class="interview"><%= interview[i].date.toDateString() %></td>
+               <td class="interview"><%= interview[i].id.name %></td>
+               <td class="interview"><%= interview[i].id.email %></td>
+               <td class="interview"><%= interview[i].id.college %></td>
+               <td class="interview"><%= interview[i].id.batch %></td>
+               <td class="interview"><%= interview[i].id.DSA %></td>
+               <td class="interview"> <%= interview[i].id.webD %></td>
+               <td class="interview"> <%= interview[i].id.react %></td>
+               <td class="interview"> <%= interview[i].result %></td>
+           </tr>
+          
+             
+             
+         
+         <%}%>
+       </table>
+    </div>
+    <script src="/js/home.js"></script>
+</body>
+
+</html>

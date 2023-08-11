@@ -1,0 +1,32 @@
+<!-- this the header -->
+  <header>
+    
+    <div class="logo">
+      <!-- Replace 'logo.png' with the path to your logo image -->
+      <img src="logo.png" alt="Interview">
+    </div>
+    <nav>
+      <ul class="navigation">
+        <li><a href="/">Home</a></li>
+        <li><a href="/student">Students</a></li>
+        <li><a href="/interview">Interviews</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <button>Search</button>
+    </div>
+    <div class="user">
+    <% if(locals.user) { %> 
+      <!-- If the user is logged in, display 'Logout', otherwise display 'Login' -->
+      <a href="/user/sign-out">Logout</a>
+      <% }else{ %>
+        <a href="/user/sign-in">Login</a>  /
+        <a href="/user/sign-up">Signin</a>  
+        <% } %>
+      </div>
+      
+  </header>
+  <!-- <script src="/js/sign_in.js"></script>  -->
+

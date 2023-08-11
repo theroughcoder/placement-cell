@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="/css/interviews.css">
+<!-- this is a box  -->
+<div id="box">
+   <!-- from for submitting interview  -->
+   <form action="interview/addinterview" method="POST">
+       <!-- app name -->
+       <h1 id="head">Interviews</h1>
+       <!-- this is checklist input container  -->
+       <div class="input_field">
+           <p>Company</p>
+           <input id="company" required type="text" name = "company" placeholder="Mention company name">
+       </div>
+       <!-- this is second input container that has two input -->
+       <div class="sec_input input_field">
+           <div>
+               <!-- category field  -->
+               <p>Interview</p>
+               <select id="student" name="id" required>
+                   <option value="" disabled selected>Choose a interview</option>
+                   <% for(var s of student){ %>
+                     <option value="<%= s._id %>"><%= s.name %></option>
+                     <% } %>
+                  
+               </select>
+           </div>
+          
+           <div>
+               <!-- due date field  -->
+               <p>Interview Date</p>
+               <input type="date" id="date" name="date" required>
+           </div>
+       </div>
+      
+       
+       <div id="btns">
+           <!-- add button  -->
+           <button type="submit" id="add_btn">ADD INTERVIEW</button>
+           <!-- delete button  -->
+           <!-- <button type="button" id="delete_btn" onclick="submitHandler()">DELETE INTERVIEW</button> -->
+       </div>
+   </form>
+
+    
+   <!-- from for deleting the interviews   -->
+   <!-- <form action="/interview/deleteinterview" method="POST" id="interview_list"> -->
+    <h2>Interviews Table</h2>
+
+    <table>
+        <tr>
+          <th>Company</th>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>College</th>
+          <th>Batch</th>
+          <th>DSA Score</th>
+          <th>Web Score</th>
+          <th>React Score</th>
+          <th>Result</th>
+        </tr>
+       <% for(let i = 0; i < interview.length; i++ ) { %>
+        <tr>
+            <td class="interview"><%= interview[i].company %></td>
+            <td class="interview"><%= interview[i].date.toDateString() %></td>
+            <td class="interview"><%= interview[i].id.name %></td>
+            <td class="interview"><%= interview[i].id.email %></td>
+            <td class="interview"><%= interview[i].id.college %></td>
+            <td class="interview"><%= interview[i].id.batch %></td>
+            <td class="interview"><%= interview[i].id.DSA %></td>
+            <td class="interview"><%= interview[i].id.webD %></td>
+            <td class="interview"><%= interview[i].id.react %></td>  
+            
+            <form action="/interview/edit/<%=interview[i]._id%>" method="POST">
+            <td style="display: flex" class="interview">
+                    <select  id="student" name="result" required>
+                        <option value="<%= interview[i].result %>" disabled selected><%= interview[i].result %></option>
+                       
+                          <option value="PASS">  PASS </option> 
+                          <option value="FAIL">  FAIL </option>
+                          <option value="ON HOLD">  ON HOLD </option>
+                          <option value="Din't Attempt">  Din't Attempt </option>
+                    </select>
+             
+                        <button  type="submit">edit</button>  
+                    </td>
+                </form>
+        </tr>
+       
+          
+          
+      
+      <%}%>
+    </table>
+      <script src="/js/interviews.js"></script>
+   <!-- </form> -->
+</div>

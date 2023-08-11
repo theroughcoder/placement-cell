@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet"  href="/css/sign_up.css">
+</head>
+<body>
+    <div class="container">
+     
+
+        <main>
+            <!-- this is sign up form  -->
+            <form action="/user/create" method="POST">
+                <h2 id = "head">Create an Account</h2>
+                <!-- first name -->
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="first_name" required>
+                <!-- last name -->
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="last_name" required>
+                <!-- email  -->
+                <label for="email">Email Address</label>
+                <input type="email" id="email"  name="email" required>
+                <!-- password -->
+                <label for="password">Password</label>
+                <input type="text" id="password" name="password" required>
+                <!-- confirmed password -->
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="text" id="confirmPassword" name="c_password" required>
+                <!-- check box  -->
+                <div class="checkbox">
+                    <input type="checkbox" id="termsCheckbox" required>
+                    <label for="termsCheckbox">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
+                </div>
+
+                <button type="submit">Sign Up</button>
+            </form>
+
+            <p class="social-login">Or sign up with:</p>
+            <div class="social-icons">
+                <!-- Add social media icons here -->
+                <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="google-icon.png" alt="Google"></a>
+                <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+            </div>
+        </main>
+
+        <footer>
+            <!-- Your footer content goes here -->
+            <p>&copy; 2023 Your Company. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
