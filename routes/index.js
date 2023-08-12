@@ -9,8 +9,8 @@ const students = require('./students');
 const interviews = require('./interviews');
 
 // this is handling home page route 
-router.get('/', home ) ;
-router.use('/user', user);
+router.get('/',passport.checkAuthentication, home ) ;
+router.use('/user',  user);
 router.use('/student', passport.checkAuthentication, students );
 router.use('/interview', passport.checkAuthentication, interviews );
 router.get('/createcsv', createCSV);
