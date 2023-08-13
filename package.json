@@ -19,6 +19,7 @@
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.3",
     "js-cookie": "^3.0.5",
+    "json2csv": "^6.0.0-alpha.2",
     "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.4.1",
     "passport": "^0.6.0",

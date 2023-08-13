@@ -1,7 +1,8 @@
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const Student = require('../models/student_schema');
 const Interview = require('../models/interview_schema');
-
+const fs = require('fs');
+const json2csv = require('json2csv').parse;
 module.exports.createCSV = async function (req, res) {
 
     //  console.log(task);
@@ -32,10 +33,13 @@ module.exports.createCSV = async function (req, res) {
         const temp = {  ...i._doc};
      newArr.push({...i._doc, ...i._doc.id._doc});
     }
-    // csvWriter downloads the csv file
-    csvWriter
-        .writeRecords(newArr)
-        .then(()=> console.log('The CSV file was written successfully')); 
-     res.redirect('/');
-     //  res.render("home", {task});   
+    // console.log(newArr)
+    const csv = json2csv(newArr, { fields: ['name', 'email', 'batch', 'college', 'status', 'DSA', 'webD', 'react', 'company', 'result' ] });
+
+    // Set headers for file download
+    res.setHeader('Content-Disposition', 'attachment; filename=data.csv');
+    res.setHeader('Content-Type', 'text/csv');
+
+    // Stream the CSV data to the response
+    res.send(csv);
     }  
