@@ -45,7 +45,7 @@ app.use(session({
   //   autoRemove: "disabled"
   // },
   store: MongoStore.create({
-    mongoUrl: 'mongodb://127.0.0.1:27017/project_template' 
+    mongoUrl: 'mongodb+srv://placement-cell:99277placementcell@cluster0.dkdwpyd.mongodb.net/?retryWrites=true&w=majority' 
   })
   // function(err){
   //   console.log(err); 
